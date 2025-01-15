@@ -74,16 +74,14 @@ class RegisterView(View):
         user_form = CustomUserRegistrationForm(request.POST)
 
         if user_form.is_valid():
+            print(user_form.errors)
             # Save user
             user = user_form.save(commit=False)
-            if 'profile_photo' in request.FILES:
+            if 'profile_picture' in request.FILES:
                 print('found it')
-                # If yes, then grab it from the POST form reply
-                user.profile_photo = request.FILES['profile_photo']
-            # Hash the password
-            user.set_password(user.password)
-            # Update with Hashed password
+                user.profile_picture = request.FILES['profile_picture']
             user.save()
+            
             print(f"User: {user.username}, Role: {user.role}, Groups: {list(user.groups.values_list('name', flat=True))}")
             # Assign user to the corresponding group based on role
             # Assign user to group based on role

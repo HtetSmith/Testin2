@@ -8,7 +8,6 @@ class CustomUserRegistrationForm(UserCreationForm):
 
     class Meta:
         model = CustomUser
-        fields = ['email', 'username', 'password', 'profile_picture', 'bio', 'role', 'country', 'city', 'phone', 'date_of_birth', 'gender']
-        widgets = {
-            'password': forms.PasswordInput(),
-        }
+        fields = ['email', 'username', 'password1', 'password2', 'profile_picture', 'bio', 'role', 'country', 'city', 'phone', 'date_of_birth', 'gender']
+        
+        

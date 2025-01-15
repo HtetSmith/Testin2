@@ -79,7 +79,7 @@ ROOT_URLCONF = "backend.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [TEMPLATES_DIR],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -101,13 +101,8 @@ WSGI_APPLICATION = "backend.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": "BonaFideLMS",
-        'USER': 'admin',  # Replace with your MySQL username
-        'PASSWORD': 'BonaFide1122',  # Replace with your MySQL password
-        'HOST': 'bonafidelearningplatform.cxw46i8kyevs.eu-north-1.rds.amazonaws.com',  # Default is localhost
-        'PORT': '3306',  # Default MySQL port
-
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
 
